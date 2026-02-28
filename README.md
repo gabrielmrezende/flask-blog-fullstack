@@ -24,7 +24,7 @@ Projeto desenvolvido durante um curso de Desenvolvimento Web com Python para fin
 
 * Python
 * Flask
-* SQLite / MySQL / PostgreSQL
+* SQLAlchemy
 * HTML
 * CSS
 * Bootstrap
