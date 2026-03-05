@@ -12,7 +12,7 @@ class FormCriarConta(FlaskForm):
     botao_submit_criarconta = SubmitField('Criar Conta')
 
     def validate_email(self, email):
-        usuario = Usuario.query.filter_by(email=email.data).first
+        usuario = Usuario.query.filter_by(email=email.data).first()
         if usuario:
             raise ValidationError('Email ja cadastrado. Cadastre-se com outro e-mail ou faça login para continuar')
 
