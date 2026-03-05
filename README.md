@@ -100,17 +100,6 @@ python app.py
 
 ---
 
-# 📌 Melhorias Futuras
-
-* Upload de imagens nos posts
-* Sistema de comentários
-* Curtidas
-* Busca de posts
-* Deploy online
-* Tema Dark Mode
-
----
-
 # 👨‍💻 Autor
 
 Gabriel Rezende
