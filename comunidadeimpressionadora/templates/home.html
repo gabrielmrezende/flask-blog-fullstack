@@ -32,7 +32,7 @@
                 
                     <br>
 
-                    {% for curso in current_user.cursos.split(';') %}
+                    {% for curso in post.autor.cursos.split(';') %}
                         <button type="button" class="btn btn-success mt-2" disabled>
                             {{ curso }}
                         </button>
@@ -45,7 +45,7 @@
 
         <div class="col-9">
 
-            <h3>{{ post.titulo }}</h3>
+            <a style="text-decoration: none;" href="{{ url_for('exibir_post', post_id=post.id) }}"><h3>{{ post.titulo }}</h3></a>
 
             <p>{{ post.corpo }}</p>
 
