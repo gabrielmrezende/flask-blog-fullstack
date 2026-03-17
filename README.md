@@ -9,14 +9,16 @@ Projeto desenvolvido durante um curso de Desenvolvimento Web com Python para fin
 # 🚀 Funcionalidades
 
 * Cadastro de usuários
-* Login e logout
+* Login e logout com sessão persistente
 * Criação de posts
-* Edição de posts
+* Edição de posts pelo próprio autor
 * Exclusão de posts
-* Banco de dados integrado
+* Edição de perfil (nome, e-mail e foto)
+* Upload e redimensionamento de foto de perfil
+* Seleção de cursos no perfil do usuário
+* Listagem de todos os usuários cadastrados
+* Banco de dados integrado (SQLite local / PostgreSQL em produção)
 * Interface responsiva com Bootstrap
-
-*(Adicione aqui outras funcionalidades do seu projeto!)*
 
 ---
 
@@ -24,7 +26,14 @@ Projeto desenvolvido durante um curso de Desenvolvimento Web com Python para fin
 
 * Python
 * Flask
+* Flask-SQLAlchemy
+* Flask-Login
+* Flask-Bcrypt
+* Flask-WTF / WTForms
+* Pillow (manipulação de imagens)
 * SQLAlchemy
+* SQLite (desenvolvimento) / PostgreSQL (produção)
+* Gunicorn
 * HTML
 * CSS
 * Bootstrap
@@ -34,11 +43,15 @@ Projeto desenvolvido durante um curso de Desenvolvimento Web com Python para fin
 
 # 📚 O que Aprendi
 
-* Estrutura de aplicações web com Flask
+* Estrutura de aplicações web com Flask usando Application Factory e Blueprint-style
 * Integração entre frontend e backend
-* Autenticação de usuários
-* Manipulação de banco de dados (CRUD)
-* Organização de projetos em pastas
+* Autenticação de usuários com hash de senha (Bcrypt)
+* Gerenciamento de sessão com Flask-Login
+* Manipulação de banco de dados com SQLAlchemy (CRUD completo)
+* Upload e processamento de imagens com Pillow
+* Validação de formulários com WTForms
+* Suporte a ambiente de produção com PostgreSQL e Gunicorn
+* Organização de projetos em pacotes Python
 * Uso do Git e GitHub para versionamento
 
 ---
@@ -46,16 +59,35 @@ Projeto desenvolvido durante um curso de Desenvolvimento Web com Python para fin
 # 📂 Estrutura do Projeto
 
 ```
-/flask-blog
+/Projeto Flask Hashtag
 │
-├── app.py
-├── models.py
-├── forms.py
-├── requirements.txt
-├── templates/
-├── static/
-├── instance/
-└── README.md
+├── main.py                         # Ponto de entrada da aplicação
+├── criar_banco.py                  # Script auxiliar para criação do banco
+├── requirements.txt                # Dependências do projeto
+├── Procfile                        # Configuração para deploy (Gunicorn)
+├── README.md
+│
+└── comunidadeimpressionadora/      # Pacote principal da aplicação
+    ├── __init__.py                 # Configuração do app, banco e extensões
+    ├── models.py                   # Modelos do banco (Usuario, Post)
+    ├── forms.py                    # Formulários WTForms
+    ├── routes.py                   # Rotas e lógica de negócio
+    │
+    ├── templates/                  # Templates HTML (Jinja2)
+    │   ├── base.html
+    │   ├── navbar.html
+    │   ├── home.html
+    │   ├── login.html
+    │   ├── perfil.html
+    │   ├── editarperfil.html
+    │   ├── criarpost.html
+    │   ├── post.html
+    │   ├── usuarios.html
+    │   └── contato.html
+    │
+    └── static/                     # Arquivos estáticos
+        ├── main.css
+        └── fotos_perfil/           # Fotos de perfil dos usuários
 ```
 
 ---
@@ -95,7 +127,7 @@ pip install -r requirements.txt
 6. Rode o projeto
 
 ```
-python app.py
+python main.py
 ```
 
 ---
